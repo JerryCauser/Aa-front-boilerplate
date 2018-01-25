@@ -1,0 +1,7 @@
+.idea/
+.next/
+node_modules/
+
+static/base.css
+
+.DS_Store

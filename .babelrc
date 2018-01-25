@@ -1,0 +1,18 @@
+{
+  "presets": [
+    ["env"],
+    ["next/babel"]
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "component": "./components"
+        }
+      }
+    ]
+  ]
+}
