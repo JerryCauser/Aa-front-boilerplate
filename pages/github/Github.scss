@@ -1,0 +1,60 @@
+@import "styles/base/variables";
+
+.title {
+  display: block;
+  border-bottom: 1px solid red;
+  font-weight: 100;
+}
+
+.pre {
+  max-width: 100%;
+  width: 100%;
+  white-space: pre;
+  font-family: $font-family-mono;
+  font-style: normal;
+  margin-bottom: 20px;
+}
+
+.container {
+  position: relative;
+}
+
+$avatarSideSize: 150px;
+.avatar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: $avatarSideSize;
+  width: $avatarSideSize;
+  border-radius: 50%;
+  transform: translate(0, -15px);
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  width: 70%;
+}
+
+.hidden {
+  overflow: hidden;
+  display: inline-block;
+  height: 10px;
+  width: .1px;
+  opacity: 0;
+}
+
+.button {
+  width: calc(30% - 20px);
+}
+
+.pretable {
+  margin-bottom: 0;
+  td {
+    padding: 0 0 0 20px;
+    border-bottom: none;
+  }
+}

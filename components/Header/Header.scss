@@ -1,0 +1,42 @@
+@import "styles/base/variables";
+
+$border-color: $border-color;
+
+.wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    padding: 10px 0;
+    width: $container-width;
+    display: flex;
+    align-items: flex-end;
+    align-content: flex-start;
+}
+
+.logo {
+    font-size: 38px;
+    max-width: 152px;
+    padding-left: 5px;
+    padding-right: 15px;
+    font-weight: 100;
+    line-height: 50px;
+    border: 1px solid $border-color;
+}
+
+.nav {
+    margin: 0 0 0 80px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.link {
+    margin: 0 20px 5px 0;
+    transform: translateY(5px);
+    font-size: smaller;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $font-color;
+}
