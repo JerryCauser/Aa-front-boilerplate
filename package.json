@@ -4,6 +4,7 @@
   "description": "Boilerplate for web based on NextJS unversal framework",
   "main": "server/index.js",
   "scripts": {
+    "setup": "rm -rf .git && git init",
     "build": "yarn build:css & next build",
     "dev": "yarn dev:css & node server",
     "build:css": "node scripts/buildCss",
