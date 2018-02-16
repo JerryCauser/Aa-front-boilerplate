@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "compression": "1.7.1",
+    "cors": "2.8.4",
     "express": "4.16.2",
     "helmet": "3.11.0",
     "immutability-helper": "2.6.4",
@@ -46,8 +47,8 @@
     "ignore-loader": "0.1.2",
     "node-sass": "4.7.2",
     "postcss-loader": "2.1.0",
-    "style-loader": "0.20.1",
-    "sass-loader": "6.0.6"
+    "sass-loader": "6.0.6",
+    "style-loader": "0.20.1"
   },
   "engines": {
     "node": ">=8.9.1",
