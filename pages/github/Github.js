@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {reduxPage} from 'core/store'
 import {getUser} from './Github.duck'
-import Styles from './Github.scss'
+import css from './Github.scss'
 import withWrapper from 'components/Wrapper'
 import NProgress from 'nprogress'
 import User from './User'
@@ -40,12 +40,11 @@ export class Github extends Component {
   }
   
   render() {
-    return <article className={Styles.container}>
-      <Styles/>
+    return <article className={css.container}>
       <User user={this.props.user}/>
-      <form onSubmit={this.getUser} className={Styles.form}>
-        <input type="text" className={Styles.input} ref={ref => this.input = ref}/>
-        <button className={Styles.button}>get</button>
+      <form onSubmit={this.getUser} className={css.form}>
+        <input type="text" className={css.input} ref={ref => this.input = ref}/>
+        <button className={css.button}>get</button>
       </form>
     </article>
   }

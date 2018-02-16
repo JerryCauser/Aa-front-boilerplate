@@ -1,5 +1,6 @@
-import {Component, Fragment} from 'react'
-import Styles from './Wrapper.scss';
+import {Component} from 'react'
+import '/styles/base.scss'
+import css from './Wrapper.scss'
 import Head from 'next/head'
 import Router from 'next/router'
 import NProgress from 'nprogress'
@@ -26,15 +27,15 @@ export function withWrapper(Child) {
     }
     
     render() {
-      return <div className={Styles.main}>
+      return <div className={css.main}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <link rel="stylesheet" type="text/css" href="/static/base.css"/>
           <link rel="icon" type="image/png" href="/static/favicon.png"/>
+          <link rel="stylesheet" href="/_next/static/vendor.css"/>
+          <link rel="stylesheet" href="/_next/static/app.css"/>
         </Head>
-        <Styles/>
         <Header/>
-        <div className={Styles.container}>
+        <div className={css.container}>
           <Child {...this.props}/>
         </div>
       </div>
