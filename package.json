@@ -1,6 +1,6 @@
 {
   "name": "aa-front-boilerplate",
-  "version": "1.1.8",
+  "version": "2.0.0",
   "description": "Boilerplate for web based on NextJS unversal framework",
   "main": "server/index.js",
   "scripts": {
@@ -47,7 +47,6 @@
     "node-sass": "4.7.2",
     "postcss-loader": "2.1.0",
     "style-loader": "0.20.1",
-    "extract-text-webpack-plugin": "3.0.2",
     "sass-loader": "6.0.6"
   },
   "engines": {
