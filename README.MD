@@ -1,6 +1,14 @@
 ### Aa-front-boilerplate
 
+To get ssl we need [certbot](https://certbot.eff.org/)
 
+add ssl 
+`sudo certbot certonly --standalone -d yoursite.com -d www.yoursite.com`
+
+renew ssl
+`sudo certbot renew --dry-run`
+
+location of generated certs is `/etc/letsencrypt/live/yoursite.com/`
 
 ##### Dependency "why" description:
 ```json
@@ -20,13 +28,6 @@
     "babel-preset-env": "babel preset env",
     "helmet": "protect our request headers",
     "immutability-helper": "easy and beauty way (mongodb like) to update state",
-    "node-sass": "I like scss <3. And it is most popular css-preprocessor",
-    "postcss": "but scss is not enough for production ready css file",
-    "autoprefixer": "add -webkit-, -moz-, -ms- and etc.",
-    "cssnano": "minify css",
-    "postcss-discard-comments": "remove comments from css, bcs cssnano can't do it with postcss-modules",
-    "postcss-modules": "css classname naming has never been easier with that",
-    "postcss-loader & sass-loader": "loaders for css",
-    "skeleton-loader": "loader to create own loaders"
+    "autoprefixer": "add -webkit-, -moz-, -ms- and etc."
 }
 ```
