@@ -1,66 +1,56 @@
-const fs = require('fs')
 const webpack = require('webpack')
+const withSass = require('./scripts/next-sass')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const commonsChunkConfig = require('./scripts/next-sass/commons-chunk-config')
+const compose = require('./scripts/next-compose')
+const {join} = require('path')
 
-module.exports = {
-  webpack: (config, {dev}) => {
-    const providePlugin = new webpack.ProvidePlugin({
-      'fetch': 'isomorphic-unfetch',
-      'React': 'react'
-    })
-    config.plugins.push(providePlugin)
-    
-    config.module.rules.push(
-      {
-        test: /\.s?css$/,
-        use: [
-          {
-            loader: 'emit-file-loader',
-            options: {
-              name: 'dist/[path][name].[ext]'
-            }
-          },
-          'babel-loader',
-          {
-            loader: 'skeleton-loader',
-            options: {
-              procedure: function (content) {
-                const fileName = `${this._module.userRequest}.json`
-                const classNames = fs.readFileSync(fileName, 'utf8')
-                
-                fs.unlink(fileName, err => {
-                  if (err) console.error(err)
-                  //TODO we need logger.
-                })
-                
-                return `
-                import Head from 'next/head'
-                const styles = () => (<Head><style dangerouslySetInnerHTML={{__html: \`${content}\`}}></style></Head>)
-                module.exports = Object.assign(styles, ${classNames})
-                `
-              }
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              config: {
-                ctx: {
-                  isDev: dev,
-                  isWebpack: true
-                }
-              }
-            }
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              includePaths: ["./"]
-            }
-          }
-        ]
-      }
-    )
-    
-    return config
+const styleLoaderOptions = {
+  cssLoaderOptions({dev}) {
+    return {
+      modules: true,
+      localIdentName: dev ? '[local]-[hash:base64:5]' : '[hash:base64:5]',
+      sourceMap: false
+    }
+  },
+  sassLoaderOptions: {
+    sourceMap: false,
+    includePaths: ["./", "./styles/base"]
   }
 }
+const extractVendorCSSPlugin = new ExtractTextPlugin('static/vendor.css')
+const extractAppCSSPlugin = new ExtractTextPlugin('static/app.css')
+
+module.exports = compose([
+  [withSass, {
+    cssLoaderOptions: { modules: false, sourceMap: false },
+    sassLoaderOptions: styleLoaderOptions.sassLoaderOptions,
+    extractCSSPlugin: extractVendorCSSPlugin,
+    rules: {
+      include: [join(__dirname, "styles")]
+    }
+  }],
+  [withSass, {
+    ...styleLoaderOptions,
+    extractCSSPlugin: extractAppCSSPlugin,
+    rules: {
+      exclude: [join(__dirname, "styles")]
+    }
+  }],
+  {
+    webpack(config, options) {
+      const providePlugin = new webpack.ProvidePlugin({
+        'fetch': 'isomorphic-unfetch',
+        'React': 'react'
+      })
+      config.plugins.push(providePlugin)
+      config.plugins.push(extractVendorCSSPlugin)
+      config.plugins.push(extractAppCSSPlugin)
+      if (!options.isServer) {
+        config = commonsChunkConfig(config, /\.(scss|sass)$/)
+      }
+      
+      return config
+    }
+  }
+])
