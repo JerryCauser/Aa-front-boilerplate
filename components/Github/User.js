@@ -1,10 +1,10 @@
 import {Fragment} from 'react'
-import Styles from './Github.scss'
+import css from './Github.scss'
 
 const User = ({user}) => {
   if (user.id === undefined) {
     return <Fragment>
-      <h1 className={Styles.title}>There is no user with that name</h1>
+      <h1 className={css.title}>There is no user with that name</h1>
     </Fragment>
   }
   
@@ -15,20 +15,20 @@ const User = ({user}) => {
   } = user;
   
   return <Fragment>
-    <h1 className={Styles.title}>
+    <h1 className={css.title}>
       My name is {user.name || user.login}!
     </h1>
-    <img src={user.avatar_url} className={Styles.avatar} alt={`${user.name}'s avatar`}/>
-    <address className={Styles.pre}>
+    <img src={user.avatar_url} className={css.avatar} alt={`${user.name}'s avatar`}/>
+    <address className={css.pre}>
       {'{'}
-        <table className={Styles.pretable}>
+        <table className={css.pretable}>
         <tbody>
         {Object.keys(clearUser).map((key, ix, list) => {
           return <tr key={key}>
             <td>
-              <span className={Styles.hidden}>"</span>
+              <span className={css.hidden}>"</span>
               {key}
-              <span className={Styles.hidden}>"</span>
+              <span className={css.hidden}>"</span>
               :
             </td>
             <Value _key={key} value={clearUser[key]} isLast={ix+1 === list.length}/>
@@ -45,7 +45,7 @@ const Value = ({_key, value, isLast}) => {
   if (typeof value !== 'string') {
     return <td>
       {String(value)}
-      <span className={Styles.hidden}>{isLast ? '' : ','}</span>
+      <span className={css.hidden}>{isLast ? '' : ','}</span>
     </td>
   }
   
@@ -57,9 +57,9 @@ const Value = ({_key, value, isLast}) => {
   }
   
   return <td>
-    <span className={Styles.hidden}>"</span>
+    <span className={css.hidden}>"</span>
     {value}
-    <span className={Styles.hidden}>"{isLast ? '' : ','}</span>
+    <span className={css.hidden}>"{isLast ? '' : ','}</span>
   </td>
 }
 
