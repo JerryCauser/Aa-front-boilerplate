@@ -1,8 +1,8 @@
 const webpack = require('webpack')
-const withSass = require('./scripts/next-sass')
+const withSass = require('./utils/next-sass')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const commonsChunkConfig = require('./scripts/next-sass/commons-chunk-config')
-const compose = require('./scripts/next-compose')
+const commonsChunkConfig = require('./utils/next-sass/commons-chunk-config')
+const compose = require('./utils/next-compose')
 const {join} = require('path')
 
 const styleLoaderOptions = {
