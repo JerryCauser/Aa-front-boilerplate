@@ -1,5 +1,7 @@
 import {Fragment} from 'react'
+import Head from 'next/head'
 import css from './Github.scss'
+import Meta from './Github.meta'
 
 const User = ({user}) => {
   if (user.id === undefined) {
@@ -15,6 +17,9 @@ const User = ({user}) => {
   } = user;
   
   return <Fragment>
+    <Head>
+      <Meta {...user}/>
+    </Head>
     <h1 className={css.title}>
       My name is {user.name || user.login}!
     </h1>

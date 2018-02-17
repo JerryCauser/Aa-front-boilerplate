@@ -30,8 +30,13 @@ export function withWrapper(Child) {
       return <div className={css.main}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <meta name="theme-color" content="#1eaedb"/>
+          <link rel="preload" type="text/css" href="/_next/static/style.css" as="style" />
+  
           <link rel="icon" type="image/png" href="/static/favicon.png"/>
           <link rel="stylesheet" href="/_next/static/style.css"/>
+  
+          <meta property="og:site_name" content="yoursite.com" />
         </Head>
         <Header/>
         <div className={css.container}>
