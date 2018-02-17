@@ -1,6 +1,5 @@
 import {Component} from 'react'
 import propTypes from 'prop-types'
-import {getUser} from './Github.duck'
 import css from './Github.scss'
 import User from './User'
 

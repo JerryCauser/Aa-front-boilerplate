@@ -39,7 +39,7 @@ function getRoutes({handle, renderAndCache}) {
       params:{user: req.params.user}
     })
   })
-  
+
   router.get('*', (req, res) => {
     return handle(req, res)
   })

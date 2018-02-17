@@ -1,6 +1,8 @@
-* {
-  box-sizing: border-box;
-}
+:global {
+  * {
+    box-sizing: border-box;
+  }
 
-@import "skeleton";
-@import "styles/nprogress";
+  @import "skeleton";
+  @import "styles/nprogress";
+}

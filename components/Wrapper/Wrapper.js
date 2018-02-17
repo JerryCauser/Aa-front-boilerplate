@@ -31,8 +31,7 @@ export function withWrapper(Child) {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
           <link rel="icon" type="image/png" href="/static/favicon.png"/>
-          <link rel="stylesheet" href="/_next/static/vendor.css"/>
-          <link rel="stylesheet" href="/_next/static/app.css"/>
+          <link rel="stylesheet" href="/_next/static/style.css"/>
         </Head>
         <Header/>
         <div className={css.container}>
