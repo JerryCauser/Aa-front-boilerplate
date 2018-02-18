@@ -42,7 +42,7 @@
   "optionalDependencies": {
     "css-loader": "0.28.9",
     "extract-text-webpack-plugin": "3.0.2",
-    "css-hot-loader": "1.3.7",
+    "extracted-loader": "1.0.6",
     "find-up": "2.1.0",
     "ignore-loader": "0.1.2",
     "node-sass": "4.7.2",

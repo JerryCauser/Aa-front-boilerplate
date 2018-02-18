@@ -75,7 +75,7 @@ module.exports = (
   }
   
   return [
-    dev && 'css-hot-loader',
+    dev && 'extracted-loader',
     ...extractPlugin.extract({
       use: [cssLoader, postcssLoader, ...loaders].filter(Boolean)
     })
