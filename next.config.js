@@ -1,6 +1,6 @@
 const webpack = require('webpack')
+const compose = require('next-compose')
 const withSass = require('./utils/next-sass')
-const compose = require('./utils/next-compose')
 
 const styleLoaderOptions = {
   cssLoaderOptions: ({dev}) => ({
