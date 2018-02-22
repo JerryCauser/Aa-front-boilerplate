@@ -14,7 +14,7 @@
   "author": "artem@abzanov.com",
   "license": "MIT",
   "dependencies": {
-    "compression": "1.7.1",
+    "compression": "1.7.2",
     "cors": "2.8.4",
     "express": "4.16.2",
     "helmet": "3.11.0",
@@ -27,7 +27,7 @@
     "prop-types": "15.6.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
-    "react-redux": "5.0.6",
+    "react-redux": "5.0.7",
     "redux": "3.7.2",
     "redux-promise-middleware": "5.0.0",
     "redux-thunk": "2.2.0"
